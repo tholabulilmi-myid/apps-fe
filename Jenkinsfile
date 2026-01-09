@@ -33,7 +33,7 @@ pipeline {
 
         stage('Prepare Target') {
             steps {
-                sshagent(['privatekey']) {
+                sshagent(['ssh-key']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ${TARGET_USER}@${TARGET_HOST} '
                         mkdir -p ${TARGET_DIR}
@@ -45,7 +45,7 @@ pipeline {
 
         stage('Sync Repository') {
             steps {
-                sshagent(['privatekey']) {
+                sshagent(['ssh-key']) {
                     sh """
                     rsync -avz --delete \
                         --exclude '.git' \

@@ -1,8 +1,8 @@
 services:
-  apps-fe-dev:
-    image: apps-fe-dev:latest
+  apps-fe:
+    image: apps-fe:latest
     build: .
-    container_name: apps-fe-dev
+    container_name: apps-fe
     restart: always
     ports:
       - "1000:80"

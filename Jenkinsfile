@@ -45,7 +45,7 @@ pipeline {
 
         stage('Sync Repository') {
             steps {
-                sshagent(['privatekey']) {
+                sshagent(['ssh-key']) {
                     sh """
                     rsync -avz --delete \
                         --exclude '.git' \
@@ -59,7 +59,7 @@ pipeline {
 
         stage('Deploy Docker Compose') {
             steps {
-                sshagent(['privatekey']) {
+                sshagent(['ssh-key']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ${TARGET_USER}@${TARGET_HOST} '
                         cd ${TARGET_DIR} &&

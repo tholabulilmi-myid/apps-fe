@@ -1,11 +1,11 @@
 services:
-  apps-fe:
-    image: apps-fe:latest
+  apps-fe-dev:
+    image: apps-fe-dev:latest
     build: .
-    container_name: apps-fe
+    container_name: apps-fe-dev
     restart: always
     ports:
-      - "1000:80"
+      - "1100:80"
     networks:
       - web-profile-net
 
